@@ -214,9 +214,10 @@ async function startApp() {
 
   // write HTML content to file
   fs.writeFile('team.html', html, err => {
+    
     if (err) {
       console.error(err);
-      return;
+      return join(__dirname, 'output', 'tasks.html');
     }
     console.log('HTML file has been generated!');
   });
@@ -224,7 +225,84 @@ async function startApp() {
 
 function generateHTML(teamMembers) {
     // generate HTML code here
-    return html;
+    console.log(teamMembers);
+
+    return `<!DOCTYPE html>
+    <html lang="en">
+    
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+        <title>My Team</title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+            integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        <link rel="stylesheet" href="style.css">
+        <script src="https://kit.fontawesome.com/c502137733.js"></script>
+    </head>
+    
+    <body>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-12 jumbotron mb-3 team-heading">
+                    <h1 class="text-center">My Team</h1>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="team-area col-12 d-flex justify-content-center">
+    
+                    <div class="card employee-card">
+                        <div class="card-header">
+                            <h2 class="card-title">Manager</h2>
+                            <h3 class="card-title"><i class="fas  mr-2"></i></h3>
+                        </div>
+                        <div class="card-body">
+                            <ul class="list-group">
+                                <li class="list-group-item">ID: ${Manager.id}</li>
+                                <li class="list-group-item">Email: ${Manager.email}<a href="mailto:"></a></li>
+                                <li class="list-group-item">Office number: ${Manager.officeNumber}</li>
+                            </ul>
+                        </div>
+                    </div>
+    
+                    <div class="card employee-card">
+                        <div class="card-header">
+                            <h2 class="card-title">Engineer</h2>
+                            <h3 class="card-title"><i class="fas mr-2"></i></h3>
+                        </div>
+                        <div class="card-body">
+                            <ul class="list-group">
+                                <li class="list-group-item">ID:${Engineer.id}</li>
+                                <li class="list-group-item">Email: ${Engineer.email}<a href="mailto:${Engineer.email}"></a></li>
+                                <li class="list-group-item">GitHub: ${Engineer.github}<a href="https://github.com/${Engineer.github}" target="_blank"
+                                        rel="noopener noreferrer"></a></li>
+                            </ul>
+                        </div>
+                    </div>
+    
+                    <div class="card employee-card">
+                        <div class="card-header">
+                            <h2 class="card-title">Intern</h2>
+                            <h3 class="card-title"><i class="fas mr-2"></i></h3>
+                        </div>
+                        <div class="card-body">
+                            <ul class="list-group">
+                                <li class="list-group-item">ID: ${Intern.id}</li>
+                                <li class="list-group-item">Email: ${Intern.email}<a href="mailto:${Intern.email}"></a></li>
+                                <li class="list-group-item">School: ${Intern.school}</li>
+                            </ul>
+                        </div>
+                    </div>
+    
+                </div>
+            </div>
+        </div>
+    </body>
+    
+    </html>`;
   }
+
 // Call the startApp function to start the application
 startApp();
