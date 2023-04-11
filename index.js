@@ -241,62 +241,63 @@ async function startApp() {
     // generate HTML code here
     console.log(teamMembers);
     let myString = "";
-    if (patron instanceof Manager) {
+    teamMembers.forEach((Employee) => {
+    if (Employee instanceof Manager) {
       //render manager card
       myString += `
                 <div class="card" style="width: 18rem;">
                 <div class="card-body">
         
-                <h5 class="card-title">${patron.name}</h5>
-                <h6 class="card-subtitle mb-2 text-muted">${patron.getRole()}</h6>
-                <p class="card-text">ID: ${patron.id}</p>
-                <p class="card-text">Email: ${patron.email}</p>
-                <p class="card-text">Office Number: ${patron.officeNumber}</p>
+                <h5 class="card-title">${Employee.name}</h5>
+                <h6 class="card-subtitle mb-2 text-muted">${Employee.getRole()}</h6>
+                <p class="card-text">ID: ${Employee.id}</p>
+                <p class="card-text">Email: ${Employee.email}</p>
+                <p class="card-text">Office Number: ${Employee.officeNumber}</p>
                 </div>
                 </div>
                 `;
     }
-    if (patron instanceof Engineer) {
+    if (Employee instanceof Engineer) {
       //render manager card
       myString += `
                 <div class="card" style="width: 18rem;">
                 <div class="card-body">
         
-                <h5 class="card-title">${patron.name}</h5>
-                <h6 class="card-subtitle mb-2 text-muted">${patron.getRole()}</h6>
-                <p class="card-text">ID: ${patron.id}</p>
-                <p class="card-text">Email: ${patron.email}</p>
-                <p class="card-text">Office Number: ${patron.officeNumber}</p>
+                <h5 class="card-title">${Employee.name}</h5>
+                <h6 class="card-subtitle mb-2 text-muted">${Employee.getRole()}</h6>
+                <p class="card-text">ID: ${Employee.id}</p>
+                <p class="card-text">Email: ${Employee.email}</p>
+                <p class="card-text">Office Number: ${Employee.officeNumber}</p>
                 </div>
                 </div>
                 `;
       {
-        if (patron instanceof Manager) {
+        if (Employee instanceof Manager) {
           //render manager card
           myString += `
             <div class="card" style="width: 18rem;">
             <div class="card-body">
 
-            <h5 class="card-title">${patron.name}</h5>
-            <h6 class="card-subtitle mb-2 text-muted">${patron.getRole()}</h6>
-            <p class="card-text">ID: ${patron.id}</p>
-            <p class="card-text">Email: ${patron.email}</p>
-            <p class="card-text">Office Number: ${patron.officeNumber}</p>
+            <h5 class="card-title">${Employee.name}</h5>
+            <h6 class="card-subtitle mb-2 text-muted">${Employee.getRole()}</h6>
+            <p class="card-text">ID: ${Employee.id}</p>
+            <p class="card-text">Email: ${Employee.email}</p>
+            <p class="card-text">Office Number: ${Employee.officeNumber}</p>
             </div>
             </div>
             `;
 
-          if (patron instanceof Intern) {
+          if (Employee instanceof Intern) {
             //render manager card
             myString += `
             <div class="card" style="width: 18rem;">
             <div class="card-body">
     
-            <h5 class="card-title">${patron.name}</h5>
-            <h6 class="card-subtitle mb-2 text-muted">${patron.getRole()}</h6>
-            <p class="card-text">ID: ${patron.id}</p>
-            <p class="card-text">Email: ${patron.email}</p>
-            <p class="card-text">Office Number: ${patron.officeNumber}</p>
+            <h5 class="card-title">${Employee.name}</h5>
+            <h6 class="card-subtitle mb-2 text-muted">${Employee.getRole()}</h6>
+            <p class="card-text">ID: ${Employee.id}</p>
+            <p class="card-text">Email: ${Employee.email}</p>
+            <p class="card-text">Office Number: ${Employee.officeNumber}</p>
             </div>
             </div>
             `;
@@ -304,84 +305,44 @@ async function startApp() {
         }
       }
     }
-  }
+  });
+}
   console.log(myString);
 
   return `<!DOCTYPE html>
-    <html lang="en">
-    
-    <head>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-        <title>My Team</title>
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-            integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-        <link rel="stylesheet" href="style.css">
-        <script src="https://kit.fontawesome.com/c502137733.js"></script>
-    </head>
-    
-    <body>
-        <div class="container-fluid">
-            <div class="row">
-                <div class="col-12 jumbotron mb-3 team-heading">
-                    <h1 class="text-center">My Team</h1>
-                </div>
-            </div>
-        </div>
-        <div class="container">
-            <div class="row">
-                <div class="team-area col-12 d-flex justify-content-center">
-    
-                    <div class="card employee-card">
-                        <div class="card-header">
-                            <h2 class="card-title">Manager</h2>
-                            <h3 class="card-title"><i class="fas  mr-2"></i></h3>
-                        </div>
-                        <div class="card-body">
-                            <ul class="list-group">
-                                <li class="list-group-item">ID: ${Manager.id}</li>
-                                <li class="list-group-item">Email: ${Manager.email}<a href="mailto:"></a></li>
-                                <li class="list-group-item">Office number: ${Manager.officeNumber}</li>
-                            </ul>
-                        </div>
-                    </div>
-    
-                    <div class="card employee-card">
-                        <div class="card-header">
-                            <h2 class="card-title">Engineer</h2>
-                            <h3 class="card-title"><i class="fas mr-2"></i></h3>
-                        </div>
-                        <div class="card-body">
-                            <ul class="list-group">
-                                <li class="list-group-item">ID:${Engineer.id}</li>
-                                <li class="list-group-item">Email: ${Engineer.email}<a href="mailto:${Engineer.email}"></a></li>
-                                <li class="list-group-item">GitHub: ${Engineer.github}<a href="https://github.com/${Engineer.github}" target="_blank"
-                                        rel="noopener noreferrer"></a></li>
-                            </ul>
-                        </div>
-                    </div>
-    
-                    <div class="card employee-card">
-                        <div class="card-header">
-                            <h2 class="card-title">Intern</h2>
-                            <h3 class="card-title"><i class="fas mr-2"></i></h3>
-                        </div>
-                        <div class="card-body">
-                            <ul class="list-group">
-                                <li class="list-group-item">ID: ${Intern.id}</li>
-                                <li class="list-group-item">Email: ${Intern.email}<a href="mailto:${Intern.email}"></a></li>
-                                <li class="list-group-item">School: ${Intern.school}</li>
-                            </ul>
-                        </div>
-                    </div>
-    
-                </div>
-            </div>
-        </div>
-    </body>
-    
-    </html>`;
+  <html lang="en">
+  
+  <head>
+      <meta charset="UTF-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+      <title>My Team</title>
+      <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+      <link rel="stylesheet" href="style.css">
+      <script src="https://kit.fontawesome.com/c502137733.js"></script>
+  </head>
+  
+  <body>
+      <div class="container-fluid">
+          <div class="row">
+              <div class="col-12 jumbotron mb-3 team-heading">
+                  <h1 class="text-center">My Team</h1>
+              </div>
+          </div>
+      </div>
+      <div class="container">
+          <div class="row">
+              <div class="team-area col-12 d-flex justify-content-center">
+  
+              ${myString}
+  
+              </div>
+          </div>
+      </div>
+  </body>
+  
+  </html>`;
 }
 
 // Call the startApp function to start the application
