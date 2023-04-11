@@ -1,5 +1,6 @@
 const fs = require("fs");
 const inquirer = require('inquirer');
+const { join } = require('path');
 
 // Define classes for different team members
 class Employee {
@@ -213,11 +214,11 @@ async function startApp() {
   const html = generateHTML(teamMembers);
 
   // write HTML content to file
-  fs.writeFile('team.html', html, err => {
+  fs.writeFile(join(__dirname, 'output', 'team.html'), html, err => {
     
     if (err) {
       console.error(err);
-      return join(__dirname, 'output', 'tasks.html');
+      return;
     }
     console.log('HTML file has been generated!');
   });
@@ -226,6 +227,13 @@ async function startApp() {
 function generateHTML(teamMembers) {
     // generate HTML code here
     console.log(teamMembers);
+    let myString = "";
+moviePatrons.forEach((patron) => {
+  if (patron instanceof Object) {
+    myString += `<p>${patron.name}</p>`;
+  }
+});
+console.log(myString);
 
     return `<!DOCTYPE html>
     <html lang="en">
