@@ -1,23 +1,25 @@
-# <Team Manager>
+# Team Manager
 
-## Description
+  ## Table of Contents
+  -[description](#description)
+  -[installation](#installation)
+  -[usage](#usage)
+  -[contribution](#contribution)
 
-All the necessary files and code for the challenge 10 Team Management.
+  ## Description
+  Easy to use team managing project.
 
-## Image 
+  ## Installation
+  npm i
 
-## Installation
+  ## Usage
+  CD into the project and run npm i and npm start.
 
-N/A
+  ## Contribution
+  Owen Olson
 
-## Usage
+  ## License
+  none
 
-Use this link (https://owennolson.github.io/) to access the final product of the website.
-
-## Credits
-
-N/A
-
-## License
-
-N/A
+  ## Questions
+  If you have any questions please contact me through my Email: owennolson@gmail.com. You can find more of my work at (https://github.com/users/owennolson)

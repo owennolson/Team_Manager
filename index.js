@@ -227,7 +227,7 @@ async function startApp() {
 
   // generate HTML content
   const html = generateHTML(teamMembers);
-
+  console.log("Here is HTML ", html);
   // write HTML content to file
   fs.writeFile(join(__dirname, "output", "team.html"), html, (err) => {
     if (err) {
@@ -238,81 +238,61 @@ async function startApp() {
   });
 
   function generateHTML(teamMembers) {
+
     // generate HTML code here
     console.log(teamMembers);
     let myString = "";
     teamMembers.forEach((Employee) => {
     if (Employee instanceof Manager) {
-      //render manager card
-      myString += `
+        //render manager card
+        myString += `
                 <div class="card" style="width: 18rem;">
                 <div class="card-body">
         
                 <h5 class="card-title">${Employee.name}</h5>
-                <h6 class="card-subtitle mb-2 text-muted">${Employee.getRole()}</h6>
+                <h1 class="card-subtitle mb-2 text-uppercase">${Employee.getRole()}</h1>
                 <p class="card-text">ID: ${Employee.id}</p>
                 <p class="card-text">Email: ${Employee.email}</p>
                 <p class="card-text">Office Number: ${Employee.officeNumber}</p>
                 </div>
                 </div>
                 `;
-    }
-    if (Employee instanceof Engineer) {
-      //render manager card
-      myString += `
-                <div class="card" style="width: 18rem;">
-                <div class="card-body">
-        
-                <h5 class="card-title">${Employee.name}</h5>
-                <h6 class="card-subtitle mb-2 text-muted">${Employee.getRole()}</h6>
-                <p class="card-text">ID: ${Employee.id}</p>
-                <p class="card-text">Email: ${Employee.email}</p>
-                <p class="card-text">Office Number: ${Employee.officeNumber}</p>
-                </div>
-                </div>
-                `;
-      {
-        if (Employee instanceof Manager) {
-          //render manager card
-          myString += `
-            <div class="card" style="width: 18rem;">
-            <div class="card-body">
-
-            <h5 class="card-title">${Employee.name}</h5>
-            <h6 class="card-subtitle mb-2 text-muted">${Employee.getRole()}</h6>
-            <p class="card-text">ID: ${Employee.id}</p>
-            <p class="card-text">Email: ${Employee.email}</p>
-            <p class="card-text">Office Number: ${Employee.officeNumber}</p>
-            </div>
-            </div>
-            `;
-
-          if (Employee instanceof Intern) {
-            //render manager card
-            myString += `
-            <div class="card" style="width: 18rem;">
-            <div class="card-body">
-    
-            <h5 class="card-title">${Employee.name}</h5>
-            <h6 class="card-subtitle mb-2 text-muted">${Employee.getRole()}</h6>
-            <p class="card-text">ID: ${Employee.id}</p>
-            <p class="card-text">Email: ${Employee.email}</p>
-            <p class="card-text">Office Number: ${Employee.officeNumber}</p>
-            </div>
-            </div>
-            `;
-          }
-        }
       }
-    }
-  });
-}
-  console.log(myString);
+    if (Employee instanceof Engineer) {
+        //render manager card
+        myString += `
+                <div class="card" style="width: 18rem;">
+                <div class="card-body">
+        
+                <h5 class="card-title">${Employee.name}</h5>
+                <h1 class="card-subtitle mb-2 text-uppercase">${Employee.getRole()}</h1>
+                <p class="card-text">ID: ${Employee.id}</p>
+                <p class="card-text">Email: ${Employee.email}</p>
+                <p class="card-text">GitHub: ${Employee.github}</p>
+                </div>
+                </div>
+                `;
+      }
+    if (Employee instanceof Intern) {
+                //render manager card
+        myString += `
+                <div class="card" style="width: 18rem;">
+                <div class="card-body">
 
-  return `<!DOCTYPE html>
-  <html lang="en">
+                <h5 class="card-title">${Employee.name}</h5>
+                <h1 class="card-subtitle mb-3 text-uppercase">${Employee.getRole()}</h1>
+                <p class="card-text">ID: ${Employee.id}</p>
+                <p class="card-text">Email: ${Employee.email}</p>
+                <p class="card-text">Schhol: ${Employee.school}</p>
+                </div>
+                </div>
+                `;
+        }
+        });
+        return `<!DOCTYPE html>
+     <html lang="en">
   
-  <head>
+     <head>
       <meta charset="UTF-8" />
       <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       <meta http-equiv="X-UA-Compatible" content="ie=edge" />
@@ -321,9 +301,9 @@ async function startApp() {
           integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
       <link rel="stylesheet" href="style.css">
       <script src="https://kit.fontawesome.com/c502137733.js"></script>
-  </head>
+     </head>
   
-  <body>
+     <body>
       <div class="container-fluid">
           <div class="row">
               <div class="col-12 jumbotron mb-3 team-heading">
@@ -340,10 +320,15 @@ async function startApp() {
               </div>
           </div>
       </div>
-  </body>
+      </body>
   
-  </html>`;
-}
+    </html>`;
+  };
+      }
+
+    
+  //   console.log(myString);
+
 
 // Call the startApp function to start the application
 startApp();

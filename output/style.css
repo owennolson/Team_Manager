@@ -9,13 +9,13 @@
     flex-wrap: wrap;
   }
   
-  .employee-card {
+  .card {
     margin: 1em;
     max-width: 280px;
     width: 90%;
     min-height: 22rem;
     background-color: #ff7300;
-    color: white;
+    color: rgb(0, 0, 0);
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -28,8 +28,8 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-    background-color: #f6f7f8;
-    border-radius: 0rem 0rem 2rem 2rem;
+    background-color: #ff7300;
+    border-radius: 2rem;
   }
   
   .list-group-item {
