@@ -6,6 +6,9 @@
   -[usage](#usage)
   -[contribution](#contribution)
 
+  ## Image
+  ![image](./images/TeamManagerImg.png)
+
   ## Description
   Easy to use team managing project.
 
